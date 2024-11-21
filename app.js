@@ -57,8 +57,8 @@ app.post('/control/', (req, res) => {
   actuadores.push(luz < 60 ? 1 : 0);
   // Si el sensor de presencia no detecta algo entonces encendemos el actuador, caso contrario lo apagamos
   actuadores.push(pre ? 0 : 1);
-  // Si la temperatura es mayor a 30°C entonces encendemos el actuador, caso contrario lo apagamos
-  actuadores.push(temp > 30 ? 1 : 0);
+  // Si la temperatura es mayor a 25°C entonces encendemos el actuador, caso contrario lo apagamos
+  actuadores.push(temp > 25 ? 1 : 0);
 
   // Enviamos la respuesta con el estado de los cuatro actuadores
   return res.status(200).send(actuadores.join(''));
